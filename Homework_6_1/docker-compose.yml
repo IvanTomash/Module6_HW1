@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "9999:80"
+    volumes:
+      - /var/www/html:/usr/share/nginx/html
+    restart: always
+  homework_6_1:
+    image: ${DOCKER_REGISTRY-}homework61
+    build:
+      context: .
+      dockerfile: Homework_6_1/Dockerfile
